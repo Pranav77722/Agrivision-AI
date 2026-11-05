@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+.expo/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Build outputs
+dist/
+build/
+*.apk
+*.aab
+*.ipa
+
+# ML model weights (large files)
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.pb
+ml/models/weights/
+ml/datasets/raw/
+ml/datasets/processed/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Coverage
+coverage/
+.coverage
+htmlcov/
+
+# Misc
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
