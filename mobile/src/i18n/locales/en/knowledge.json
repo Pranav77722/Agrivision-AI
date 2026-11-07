@@ -1,0 +1,16 @@
+{
+  "title": "Kisan Knowledge Hub",
+  "subtitle": "Agronomic guides, disease library, and crop protection manuals",
+  "searchPlaceholder": "Search diseases, pests, remedies, or crops...",
+  "categories": "Categories",
+  "featuredArticles": "Featured Guides",
+  "bookmarkedArticles": "Saved Articles",
+  "noBookmarks": "No saved articles yet. Bookmark helpful guides for offline reference.",
+  "readTime": "{{minutes}} min read",
+  "categoryDiseases": "Crop Diseases",
+  "categoryPests": "Pest & Insects",
+  "categorySoil": "Soil Health & Testing",
+  "categoryFertilizers": "Fertilizer Schedule",
+  "categoryWeather": "Weather & Climate",
+  "categoryGovtSchemes": "Govt Schemes & Subsidies"
+}

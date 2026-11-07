@@ -1,0 +1,16 @@
+{
+  "title": "किसान ज्ञान केंद्र",
+  "subtitle": "कृषि मार्गदर्शिका, रोग ज्ञानकोश और फसल सुरक्षा पुस्तिकाएं",
+  "searchPlaceholder": "रोग, कीट, उपाय या फसल का नाम खोजें...",
+  "categories": "श्रेणियां",
+  "featuredArticles": "प्रमुख कृषि लेख",
+  "bookmarkedArticles": "सहेजे गए लेख",
+  "noBookmarks": "कोई सहेजा गया लेख नहीं। उपयोगी लेखों को बाद में पढ़ने के लिए बुकमार्क करें।",
+  "readTime": "{{minutes}} मिनट पठन",
+  "categoryDiseases": "फसल रोग ज्ञान",
+  "categoryPests": "कीट एवं पतंगे",
+  "categorySoil": "मिट्टी स्वास्थ्य व परीक्षण",
+  "categoryFertilizers": "उर्वरक प्रबंधन कार्यक्रम",
+  "categoryWeather": "मौसम एवं जलवायु",
+  "categoryGovtSchemes": "सरकारी योजनाएं और सब्सिडी"
+}

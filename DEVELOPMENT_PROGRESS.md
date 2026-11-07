@@ -42,3 +42,4 @@
 - OpenWeatherMap API key
 - BHASHINI API key
 - LLM provider API key (Gemini/OpenAI)
+

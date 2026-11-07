@@ -103,3 +103,4 @@ Models are loaded by the backend at startup. Ensure:
 - Backend health: `GET /api/v1/health`
 - Model status: `GET /api/v1/health/models`
 - API docs: `GET /docs` (Swagger UI)
+

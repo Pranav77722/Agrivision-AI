@@ -1,0 +1,19 @@
+{
+  "title": "कृषि परामर्श रिपोर्ट",
+  "subtitle": "फसल बीमा, बैंक ऋण या कृषि विशेषज्ञों के लिए आधिकारिक PDF रिपोर्ट प्राप्त करें",
+  "generateReport": "नई रिपोर्ट बनाएं",
+  "downloadPdf": "PDF डाउनलोड करें",
+  "shareReport": "WhatsApp पर रिपोर्ट साझा करें",
+  "reportDetails": "रिपोर्ट विवरण",
+  "reportNumber": "रिपोर्ट आईडी: #{{id}}",
+  "generatedOn": "जारी दिनांक: {{date}}",
+  "farmerName": "किसान का नाम",
+  "farmLocation": "खेत का स्थान",
+  "cropDiagnosed": "जांची गई फसल",
+  "conditionDetected": "पाया गया रोग / स्थिति",
+  "confidenceScore": "AI मॉडल सटीकता",
+  "severityRating": "क्षति गंभीरता",
+  "actionPlanSummary": "उपचार कार्ययोजना सारांश",
+  "officialDisclaimer": "यह रिपोर्ट एग्रीविज़न AI+ डीप लर्निंग मॉडल और ICAR मानकों के आधार पर बनाई गई है।",
+  "noReports": "अभी कोई रिपोर्ट नहीं बनी है। रिपोर्ट बनाने के लिए फसल का निदान करें।"
+}

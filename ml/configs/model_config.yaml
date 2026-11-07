@@ -1,0 +1,54 @@
+disease_classifier:
+  model: EfficientNetB3
+  input_size: [300, 300]
+  num_classes: 38
+  weights_path: ml/models/weights/efficientnetb3_disease.h5
+  top_k: 5
+  batch_size: 32
+
+ensemble:
+  num_classes: 38
+  models:
+    - name: VGG16
+      input_size: [224, 224]
+      weight: 0.2
+      weights_path: ml/models/weights/vgg16_disease.h5
+    - name: VGG19
+      input_size: [224, 224]
+      weight: 0.2
+      weights_path: ml/models/weights/vgg19_disease.h5
+    - name: InceptionV3
+      input_size: [299, 299]
+      weight: 0.3
+      weights_path: ml/models/weights/inceptionv3_disease.h5
+    - name: ResNet101V2
+      input_size: [224, 224]
+      weight: 0.3
+      weights_path: ml/models/weights/resnet101v2_disease.h5
+
+pest_detector:
+  model: YOLOv8
+  weights_path: ml/models/weights/yolov8_pest.pt
+  confidence_threshold: 0.25
+  iou_threshold: 0.45
+  imgsz: 640
+
+severity:
+  model: UNet
+  input_size: [256, 256]
+  weights_path: ml/models/weights/unet_severity.h5
+  threshold: 0.5
+
+yield_prediction:
+  model: XGBoost
+  weights_path: ml/models/weights/xgboost_yield.joblib
+  rf_fallback_path: ml/models/weights/rf_yield.joblib
+  features:
+    - crop
+    - district
+    - season
+    - area
+    - soil_type
+    - irrigation
+    - rainfall
+    - temperature

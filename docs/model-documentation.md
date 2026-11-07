@@ -119,3 +119,4 @@ ml/models/weights/
 
 > ⚠️ These files are NOT included in the Git repository due to their size.
 > They must be downloaded or trained separately using the scripts in `ml/training/`.
+

@@ -1,0 +1,38 @@
+{
+  "title": "Crop Yield Prediction",
+  "subtitle": "Machine learning harvest output estimation tailored to your plot and climate",
+  "cropLabel": "Crop",
+  "districtLabel": "District",
+  "areaLabel": "Farm Area (Acres)",
+  "soilLabel": "Soil Type",
+  "seasonLabel": "Season",
+  "irrigationLabel": "Irrigation Source",
+  "predictButton": "Calculate Forecast",
+  "resultsHeader": "Forecasted Harvest",
+  "estimatedYield": "Estimated Production",
+  "yieldUnit": "Quintals / Acre",
+  "totalExpected": "Total Expected: {{total}} Quintals",
+  "confidenceRange": "Estimated Range",
+  "riskFactorsHeader": "Key Production Risk Factors",
+  "riskDrought": "Dry spell during flowering stage",
+  "riskPest": "Borer pressure in adjoining blocks",
+  "riskMarket": "Seasonal mandi price fluctuation",
+  "soils": {
+    "black": "Black Cotton Soil",
+    "alluvial": "Alluvial Soil",
+    "red": "Red Soil",
+    "sandy": "Sandy Loam",
+    "clay": "Clay Soil"
+  },
+  "seasons": {
+    "kharif": "Kharif (Monsoon)",
+    "rabi": "Rabi (Winter)",
+    "zaid": "Zaid (Summer)"
+  },
+  "irrigations": {
+    "drip": "Drip Irrigation",
+    "sprinkler": "Sprinkler",
+    "canal": "Canal / Borewell Flood",
+    "rainfed": "Rainfed (Dryland)"
+  }
+}

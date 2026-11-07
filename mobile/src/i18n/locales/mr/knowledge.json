@@ -1,0 +1,16 @@
+{
+  "title": "किसान ज्ञान केंद्र",
+  "subtitle": "कृषी मार्गदर्शक, रोग ज्ञानकोश आणि पीक संरक्षण माहिती",
+  "searchPlaceholder": "रोग, कीड, उपाय किंवा पिकांचे नाव शोधा...",
+  "categories": "वर्गवारी / विभाग",
+  "featuredArticles": "महत्त्वाचे कृषी लेख",
+  "bookmarkedArticles": "जतन केलेले लेख",
+  "noBookmarks": "कोणताही लेख जतन केलेला नाही. महत्त्वाचे लेख नंतर वाचण्यासाठी सेव्ह करा.",
+  "readTime": "{{minutes}} मिनिटे वाचन",
+  "categoryDiseases": "पीक रोग माहिती",
+  "categoryPests": "कीड व कीटक",
+  "categorySoil": "माती आरोग्य व तपासणी",
+  "categoryFertilizers": "खत व्यवस्थापन वेळापत्रक",
+  "categoryWeather": "हवामान व शेती",
+  "categoryGovtSchemes": "शासकीय योजना व अनुदान"
+}

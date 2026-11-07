@@ -1,0 +1,12 @@
+names:
+  0: Aphids
+  1: Whitefly
+  2: Thrips
+  3: Spider Mites
+  4: Armyworm
+  5: Bollworm
+  6: Stem Borer
+  7: Leafhopper
+path: D:\Download 2\Agrivison Ai\ml\datasets\sample_pest_yolo
+train: images/train
+val: images/val

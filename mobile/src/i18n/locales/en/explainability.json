@@ -1,0 +1,14 @@
+{
+  "title": "AI Visual Explainability",
+  "subtitle": "Grad-CAM saliency heatmaps reveal why the neural network made its decision",
+  "heatmapOverlay": "Heatmap Overlay",
+  "originalImage": "Original Photo",
+  "gradCamView": "Grad-CAM Activation",
+  "whatAiSaw": "Where the AI Looked",
+  "explanationDesc": "Red and yellow zones indicate high model attention corresponding to necrotic borders, chlorosis, and fungal pustules. Blue zones indicate background leaf tissue.",
+  "redZone": "High Attention (Lesions)",
+  "yellowZone": "Medium Attention (Discoloration)",
+  "blueZone": "Low Attention (Healthy Tissue)",
+  "modelConfidence": "Confidence in Focused Regions",
+  "verifiedByAgronomist": "Validated against Indian ICAR disease hallmarks"
+}

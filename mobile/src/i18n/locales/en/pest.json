@@ -1,0 +1,18 @@
+{
+  "title": "Pest & Insect Detection",
+  "subtitle": "Locate and identify damaging insects using object detection models",
+  "uploadPrompt": "Upload or capture a photo showing pest infestation",
+  "detectPests": "Scan for Pests",
+  "pestDetectedCount": "{{count}} Pest(s) Detected",
+  "noPestsFound": "No harmful pests detected. Leaf appears free of major insects.",
+  "species": "Identified Species",
+  "count": "Observed Count",
+  "threatLevel": "Threat Level",
+  "threatLow": "Low - Monitor population",
+  "threatModerate": "Moderate - Action recommended",
+  "threatHigh": "High - Immediate intervention needed",
+  "organicControl": "Organic & Neem Solutions",
+  "chemicalControl": "Targeted Chemical Sprays",
+  "biologicalControl": "Natural Predators & Traps",
+  "boundingBoxToggle": "Show Bounding Boxes"
+}

@@ -1,0 +1,526 @@
+{
+  "classes": [
+    "Apple___Apple_scab",
+    "Apple___Black_rot",
+    "Apple___Cedar_apple_rust",
+    "Apple___healthy",
+    "Blueberry___healthy",
+    "Cherry___Powdery_mildew",
+    "Cherry___healthy",
+    "Corn___Cercospora_leaf_spot",
+    "Corn___Common_rust",
+    "Corn___Northern_Leaf_Blight",
+    "Corn___healthy",
+    "Grape___Black_rot",
+    "Grape___Esca",
+    "Grape___Leaf_blight",
+    "Grape___healthy",
+    "Orange___Haunglongbing",
+    "Peach___Bacterial_spot",
+    "Peach___healthy",
+    "Pepper___Bacterial_spot",
+    "Pepper___healthy",
+    "Potato___Early_blight",
+    "Potato___Late_blight",
+    "Potato___healthy",
+    "Raspberry___healthy",
+    "Soybean___healthy",
+    "Squash___Powdery_mildew",
+    "Strawberry___Leaf_scorch",
+    "Strawberry___healthy",
+    "Tomato___Bacterial_spot",
+    "Tomato___Early_blight",
+    "Tomato___Late_blight",
+    "Tomato___Leaf_Mold",
+    "Tomato___Septoria_leaf_spot",
+    "Tomato___Spider_mites",
+    "Tomato___Target_Spot",
+    "Tomato___Yellow_Leaf_Curl_Virus",
+    "Tomato___Mosaic_virus",
+    "Tomato___healthy"
+  ],
+  "disease_details": {
+    "Apple___Apple_scab": {
+      "crop": "Apple",
+      "disease": "Apple Scab",
+      "en": "Apple Scab (Venturia inaequalis)",
+      "mr": "सफरचंद खरुज (स्कॅब)",
+      "hi": "सेब का पपड़ी रोग (स्कैब)",
+      "is_healthy": false,
+      "symptoms": "Olive-green to black velvety spots on leaves and fruit.",
+      "treatment": "Apply fungicides like captan, mancozeb or copper-based sprays during bud break."
+    },
+    "Apple___Black_rot": {
+      "crop": "Apple",
+      "disease": "Black Rot",
+      "en": "Apple Black Rot (Botryosphaeria obtusa)",
+      "mr": "सफरचंद काळा कुजवा (ब्लॅक रॉट)",
+      "hi": "सेब का काला सड़ांध रोग (ब्लैक रॉट)",
+      "is_healthy": false,
+      "symptoms": "Concentric rings on fruit rot, purple/brown spots on leaves (frogeye leaf spot).",
+      "treatment": "Prune infected branches and apply thiophanate-methyl or captan."
+    },
+    "Apple___Cedar_apple_rust": {
+      "crop": "Apple",
+      "disease": "Cedar Apple Rust",
+      "en": "Cedar Apple Rust (Gymnosporangium juniperi-virginianae)",
+      "mr": "सफरचंद शेंदरी तांबेरा",
+      "hi": "सेब का देवदार रतुआ",
+      "is_healthy": false,
+      "symptoms": "Bright yellow-orange spots on the upper leaf surface.",
+      "treatment": "Spray myclobutanil or propiconazole fungicide in early spring."
+    },
+    "Apple___healthy": {
+      "crop": "Apple",
+      "disease": "Healthy",
+      "en": "Healthy Apple Leaf",
+      "mr": "निरोगी सफरचंद",
+      "hi": "स्वस्थ सेब",
+      "is_healthy": true,
+      "symptoms": "No noticeable disease symptoms.",
+      "treatment": "Maintain regular balanced fertilization and drip irrigation."
+    },
+    "Blueberry___healthy": {
+      "crop": "Blueberry",
+      "disease": "Healthy",
+      "en": "Healthy Blueberry Leaf",
+      "mr": "निरोगी ब्लूबेरी",
+      "hi": "स्वस्थ ब्लूबेरी",
+      "is_healthy": true,
+      "symptoms": "Normal vibrant foliage.",
+      "treatment": "Maintain soil pH between 4.5 and 5.5."
+    },
+    "Cherry___Powdery_mildew": {
+      "crop": "Cherry",
+      "disease": "Powdery Mildew",
+      "en": "Cherry Powdery Mildew (Podosphaera clandestina)",
+      "mr": "चेरीवरील भुरी रोग",
+      "hi": "चेरी का चूर्णिल फफूंद (पाउडरी मिल्ड्यू)",
+      "is_healthy": false,
+      "symptoms": "White powdery fungal patches on new leaves and shoot tips.",
+      "treatment": "Apply wettable sulfur or azoxystrobin at early petal fall."
+    },
+    "Cherry___healthy": {
+      "crop": "Cherry",
+      "disease": "Healthy",
+      "en": "Healthy Cherry Leaf",
+      "mr": "निरोगी चेरी",
+      "hi": "स्वस्थ चेरी",
+      "is_healthy": true,
+      "symptoms": "Foliage intact with no fungal spots.",
+      "treatment": "Standard orchard maintenance and balanced nutrient supply."
+    },
+    "Corn___Cercospora_leaf_spot": {
+      "crop": "Corn",
+      "disease": "Cercospora Leaf Spot (Gray Leaf Spot)",
+      "en": "Corn Gray Leaf Spot (Cercospora zeae-maydis)",
+      "mr": "मका करपा (सर्कॉस्पोरा)",
+      "hi": "मक्का धूसर पत्ती धब्बा (सर्कोस्पोरा)",
+      "is_healthy": false,
+      "symptoms": "Rectangular, brown to gray lesions running parallel to leaf veins.",
+      "treatment": "Use resistant hybrids; spray azoxystrobin + propiconazole at silking."
+    },
+    "Corn___Common_rust": {
+      "crop": "Corn",
+      "disease": "Common Rust",
+      "en": "Corn Common Rust (Puccinia sorghi)",
+      "mr": "मका तांबेरा रोग",
+      "hi": "मक्का का सामान्य रतुआ",
+      "is_healthy": false,
+      "symptoms": "Cinnamon-brown pustules scattered across both leaf surfaces.",
+      "treatment": "Spray tebuconazole or pyraclostrobin upon early signs."
+    },
+    "Corn___Northern_Leaf_Blight": {
+      "crop": "Corn",
+      "disease": "Northern Leaf Blight",
+      "en": "Northern Corn Leaf Blight (Exserohilum turcicum)",
+      "mr": "मक्यावरील उत्तरेकडील करपा",
+      "hi": "मक्का का उत्तरी पत्ती झुलसा",
+      "is_healthy": false,
+      "symptoms": "Long, elliptical cigar-shaped grayish-green lesions.",
+      "treatment": "Crop rotation, resistant seed varieties, and mancozeb spray."
+    },
+    "Corn___healthy": {
+      "crop": "Corn",
+      "disease": "Healthy",
+      "en": "Healthy Corn Foliage",
+      "mr": "निरोगी मका",
+      "hi": "स्वस्थ मक्का",
+      "is_healthy": true,
+      "symptoms": "Lush green blade leaves with no necrotic lesions.",
+      "treatment": "Adequate nitrogen fertilization and pest monitoring."
+    },
+    "Grape___Black_rot": {
+      "crop": "Grape",
+      "disease": "Black Rot",
+      "en": "Grape Black Rot (Guignardia bidwellii)",
+      "mr": "द्राक्ष काळा कुजवा (ब्लॅक रॉट)",
+      "hi": "अंगूर का काला सड़न रोग",
+      "is_healthy": false,
+      "symptoms": "Reddish-brown circular spots on leaves; berries shrivel into black mummies.",
+      "treatment": "Apply mancozeb, myclobutanil or boscalid from early shoot stage."
+    },
+    "Grape___Esca": {
+      "crop": "Grape",
+      "disease": "Esca (Black Measles)",
+      "en": "Grape Esca / Black Measles (Phaeomoniella chlamydospora)",
+      "mr": "द्राक्ष एस्का (काळे डाग)",
+      "hi": "अंगूर का एस्का (ब्लैक मीजल्स)",
+      "is_healthy": false,
+      "symptoms": "Tiger-stripe chlorosis and necrosis on leaves; dark spots on fruit skin.",
+      "treatment": "Prune out diseased wood; disinfect pruning shears; apply wound protectants."
+    },
+    "Grape___Leaf_blight": {
+      "crop": "Grape",
+      "disease": "Leaf Blight",
+      "en": "Grape Leaf Blight (Pseudocercospora vitis)",
+      "mr": "द्राक्ष पान करपा",
+      "hi": "अंगूर का पत्ती झुलसा",
+      "is_healthy": false,
+      "symptoms": "Irregular dark brown patches on mature foliage leading to defoliation.",
+      "treatment": "Spray carbendazim or copper oxychloride."
+    },
+    "Grape___healthy": {
+      "crop": "Grape",
+      "disease": "Healthy",
+      "en": "Healthy Grapevine Leaf",
+      "mr": "निरोगी द्राक्ष पान",
+      "hi": "स्वस्थ अंगूर की पत्ती",
+      "is_healthy": true,
+      "symptoms": "Vigorous green vine canopy without leaf spotting.",
+      "treatment": "Proper shoot positioning, air circulation, and balanced fertigation."
+    },
+    "Orange___Haunglongbing": {
+      "crop": "Orange / Citrus",
+      "disease": "Huanglongbing (Citrus Greening)",
+      "en": "Citrus Greening / Huanglongbing (Candidatus Liberibacter asiaticus)",
+      "mr": "संत्रा पिवळा रोग (सिट्रस ग्रीनिंग)",
+      "hi": "संतरा सिट्रस ग्रीनिंग / हुआंगलोंगबिंग",
+      "is_healthy": false,
+      "symptoms": "Asymmetric blotchy mottling on leaves, yellow shoots, bitter misshapen fruit.",
+      "treatment": "Control Asian citrus psyllid vector using imidacloprid; remove infected trees."
+    },
+    "Peach___Bacterial_spot": {
+      "crop": "Peach",
+      "disease": "Bacterial Spot",
+      "en": "Peach Bacterial Spot (Xanthomonas arboricola)",
+      "mr": "पीच जिवाणू ठिपके",
+      "hi": "आड़ू जीवाणु धब्बा रोग",
+      "is_healthy": false,
+      "symptoms": "Water-soaked angular purple-brown spots dropping out (shot-hole effect).",
+      "treatment": "Apply copper sprays at dormant and shuck split stage; avoid overhead irrigation."
+    },
+    "Peach___healthy": {
+      "crop": "Peach",
+      "disease": "Healthy",
+      "en": "Healthy Peach Leaf",
+      "mr": "निरोगी पीच",
+      "hi": "स्वस्थ आड़ू",
+      "is_healthy": true,
+      "symptoms": "Clean leaves free from spots or cankers.",
+      "treatment": "Maintain balanced zinc and boron orchard nutritional program."
+    },
+    "Pepper___Bacterial_spot": {
+      "crop": "Pepper / Capsicum",
+      "disease": "Bacterial Spot",
+      "en": "Bell Pepper Bacterial Spot (Xanthomonas campestris)",
+      "mr": "मिरची जिवाणू ठिपके रोग",
+      "hi": "शिमला मिर्च का जीवाणु धब्बा",
+      "is_healthy": false,
+      "symptoms": "Small, water-soaked blistering lesions turning dark brown with yellow halos.",
+      "treatment": "Apply copper hydroxide mixed with mancozeb; use certified disease-free seeds."
+    },
+    "Pepper___healthy": {
+      "crop": "Pepper / Capsicum",
+      "disease": "Healthy",
+      "en": "Healthy Bell Pepper Leaf",
+      "mr": "निरोगी शिमला मिरची",
+      "hi": "स्वस्थ शिमला मिर्च",
+      "is_healthy": true,
+      "symptoms": "Uniform deep green glossy foliage.",
+      "treatment": "Provide balanced N-P-K, calcium feeding, and regular moisture."
+    },
+    "Potato___Early_blight": {
+      "crop": "Potato",
+      "disease": "Early Blight",
+      "en": "Potato Early Blight (Alternaria solani)",
+      "mr": "बटाटा लवकर येणारा करपा (अल्टरनेरिया)",
+      "hi": "आलू का अगेती झुलसा",
+      "is_healthy": false,
+      "symptoms": "Brown to black spots with concentric rings creating a target-board pattern.",
+      "treatment": "Apply chlorothalonil, mancozeb or difenoconazole spray."
+    },
+    "Potato___Late_blight": {
+      "crop": "Potato",
+      "disease": "Late Blight",
+      "en": "Potato Late Blight (Phytophthora infestans)",
+      "mr": "बटाटा उशिरा येणारा करपा (फायटोफ्थोरा)",
+      "hi": "आलू का पछेती झुलसा",
+      "is_healthy": false,
+      "symptoms": "Water-soaked irregular lesions with white mold on leaf underside in damp weather.",
+      "treatment": "Immediately spray metalaxyl + mancozeb or cymoxanil + mancozeb."
+    },
+    "Potato___healthy": {
+      "crop": "Potato",
+      "disease": "Healthy",
+      "en": "Healthy Potato Leaf",
+      "mr": "निरोगी बटाटा रोप",
+      "hi": "स्वस्थ आलू का पौधा",
+      "is_healthy": true,
+      "symptoms": "Robust green leaves with no blight spots.",
+      "treatment": "Good hilling up and monitored preventive spray schedule."
+    },
+    "Raspberry___healthy": {
+      "crop": "Raspberry",
+      "disease": "Healthy",
+      "en": "Healthy Raspberry Leaf",
+      "mr": "निरोगी रास्पबेरी",
+      "hi": "स्वस्थ रसभरी",
+      "is_healthy": true,
+      "symptoms": "No visible signs of infection or necrosis.",
+      "treatment": "Mulch root zones and maintain adequate soil moisture."
+    },
+    "Soybean___healthy": {
+      "crop": "Soybean",
+      "disease": "Healthy",
+      "en": "Healthy Soybean Leaf",
+      "mr": "निरोगी सोयाबीन रोप",
+      "hi": "स्वस्थ सोयाबीन पौधा",
+      "is_healthy": true,
+      "symptoms": "Clean trifoliate leaves with vibrant green coloration.",
+      "treatment": "Rhizobium inoculation and timely weed management."
+    },
+    "Squash___Powdery_mildew": {
+      "crop": "Squash / Cucurbits",
+      "disease": "Powdery Mildew",
+      "en": "Squash Powdery Mildew (Podosphaera xanthii)",
+      "mr": "भोपळ्यावरील भुरी रोग",
+      "hi": "कद्दू वर्गीय भुरी रोग (पाउडरी मिल्ड्यू)",
+      "is_healthy": false,
+      "symptoms": "White talcum powder-like fungal growth coating upper leaf surfaces.",
+      "treatment": "Spray potassium bicarbonate, neem oil, or hexaconazole."
+    },
+    "Strawberry___Leaf_scorch": {
+      "crop": "Strawberry",
+      "disease": "Leaf Scorch",
+      "en": "Strawberry Leaf Scorch (Diplocarpon earlianum)",
+      "mr": "स्ट्रॉबेरी पान करपा (लीफ स्कॉर्च)",
+      "hi": "स्ट्रॉबेरी का पत्ती झुलसा",
+      "is_healthy": false,
+      "symptoms": "Irregular purple to brown blotches coalescing to give a scorched appearance.",
+      "treatment": "Remove dead foliage post-harvest; spray captan or thiophanate-methyl."
+    },
+    "Strawberry___healthy": {
+      "crop": "Strawberry",
+      "disease": "Healthy",
+      "en": "Healthy Strawberry Leaf",
+      "mr": "निरोगी स्ट्रॉबेरी",
+      "hi": "स्वस्थ स्ट्रॉबेरी",
+      "is_healthy": true,
+      "symptoms": "Healthy green leaves without necrotic lesions.",
+      "treatment": "Use clean straw mulching and avoid wet canopy conditions."
+    },
+    "Tomato___Bacterial_spot": {
+      "crop": "Tomato",
+      "disease": "Bacterial Spot",
+      "en": "Tomato Bacterial Spot (Xanthomonas vesicatoria)",
+      "mr": "टोमॅटो जिवाणू ठिपके रोग",
+      "hi": "टमाटर का जीवाणु धब्बा रोग",
+      "is_healthy": false,
+      "symptoms": "Small greasy water-soaked circular dark brown spots with halo.",
+      "treatment": "Apply streptomycin sulfate or copper oxychloride."
+    },
+    "Tomato___Early_blight": {
+      "crop": "Tomato",
+      "disease": "Early Blight",
+      "en": "Tomato Early Blight (Alternaria solani)",
+      "mr": "टोमॅटो लवकर येणारा करपा",
+      "hi": "टमाटर का अगेती झुलसा",
+      "is_healthy": false,
+      "symptoms": "Dark brown rings forming target spots on lower mature leaves.",
+      "treatment": "Apply mancozeb, azoxystrobin or chlorothalonil."
+    },
+    "Tomato___Late_blight": {
+      "crop": "Tomato",
+      "disease": "Late Blight",
+      "en": "Tomato Late Blight (Phytophthora infestans)",
+      "mr": "टोमॅटो उशिरा येणारा करपा",
+      "hi": "टमाटर का पछेती झुलसा",
+      "is_healthy": false,
+      "symptoms": "Large, dark water-soaked greasy patches rapidly wilting leaves.",
+      "treatment": "Immediate application of cymoxanil + mancozeb or dimethomorph."
+    },
+    "Tomato___Leaf_Mold": {
+      "crop": "Tomato",
+      "disease": "Leaf Mold",
+      "en": "Tomato Leaf Mold (Passalora fulva)",
+      "mr": "टोमॅटो पानांवरील बुरशी",
+      "hi": "टमाटर का पत्ती फफूंद (लीफ मोल्ड)",
+      "is_healthy": false,
+      "symptoms": "Pale greenish-yellow spots on upper leaf surface, olive-green mold beneath.",
+      "treatment": "Improve greenhouse ventilation and spray copper or difenoconazole."
+    },
+    "Tomato___Septoria_leaf_spot": {
+      "crop": "Tomato",
+      "disease": "Septoria Leaf Spot",
+      "en": "Tomato Septoria Leaf Spot (Septoria lycopersici)",
+      "mr": "टोमॅटो सेप्टोरिया ठिपके रोग",
+      "hi": "टमाटर का सेप्टोरिया पत्ती धब्बा",
+      "is_healthy": false,
+      "symptoms": "Numerous small circular spots with grayish-white centers and dark borders.",
+      "treatment": "Prune lower leaves to minimize soil splash; apply chlorothalonil or mancozeb."
+    },
+    "Tomato___Spider_mites": {
+      "crop": "Tomato",
+      "disease": "Two-spotted Spider Mite",
+      "en": "Tomato Two-spotted Spider Mite (Tetranychus urticae)",
+      "mr": "टोमॅटो लाल कोळी कीड",
+      "hi": "टमाटर की लाल मकड़ी (स्पाइडर माइट्स)",
+      "is_healthy": false,
+      "symptoms": "Yellow stippling on leaves accompanied by fine silken webbing underneath.",
+      "treatment": "Spray acaricides like spiromesifen, propargite or neem oil."
+    },
+    "Tomato___Target_Spot": {
+      "crop": "Tomato",
+      "disease": "Target Spot",
+      "en": "Tomato Target Spot (Corynespora cassiicola)",
+      "mr": "टोमॅटो टार्गेट स्पॉट रोग",
+      "hi": "टमाटर का टारगेट स्पॉट",
+      "is_healthy": false,
+      "symptoms": "Brown circular lesions with concentric rings and chlorotic halos.",
+      "treatment": "Apply azoxystrobin, pyraclostrobin or copper oxychloride."
+    },
+    "Tomato___Yellow_Leaf_Curl_Virus": {
+      "crop": "Tomato",
+      "disease": "Yellow Leaf Curl Virus",
+      "en": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+      "mr": "टोमॅटो पिवळा पाने चुरमुरणे व्हायरस (पिवळा पर्णगुच्छ)",
+      "hi": "टमाटर का पीला पत्ती कुंचन वायरस",
+      "is_healthy": false,
+      "symptoms": "Severe stunting, upward curling of leaf margins, bright yellowing.",
+      "treatment": "Control whitefly vector with acetamiprid, thiamethoxam, and yellow sticky traps."
+    },
+    "Tomato___Mosaic_virus": {
+      "crop": "Tomato",
+      "disease": "Mosaic Virus",
+      "en": "Tomato Mosaic Virus (ToMV)",
+      "mr": "टोमॅटो मोझॅक व्हायरस",
+      "hi": "टमाटर का मोज़ेक वायरस",
+      "is_healthy": false,
+      "symptoms": "Mottled light and dark green patterns on leaves, puckering and distortion.",
+      "treatment": "Disinfect tools with trisodium phosphate; destroy infected plants; use virus-free seed."
+    },
+    "Tomato___healthy": {
+      "crop": "Tomato",
+      "disease": "Healthy",
+      "en": "Healthy Tomato Leaf",
+      "mr": "निरोगी टोमॅटो रोप",
+      "hi": "स्वस्थ टमाटर पौधा",
+      "is_healthy": true,
+      "symptoms": "Vibrant green leaves without blemish or curl.",
+      "treatment": "Maintain regular watering and balanced N-P-K nutrient schedule."
+    }
+  },
+  "pest_classes": [
+    {
+      "id": 0,
+      "key": "aphid",
+      "en": "Aphid",
+      "mr": "मावा (अॅफिड)",
+      "hi": "माहू / एफिड",
+      "description": "Small soft-bodied insects feeding on plant sap and secreting sticky honeydew.",
+      "control_organic": "Spray neem oil 1500 ppm or release ladybird beetles (coccinellids).",
+      "control_chemical": "Spray imidacloprid 17.8 SL @ 0.5 ml/L or thiamethoxam 25 WG @ 0.3 g/L."
+    },
+    {
+      "id": 1,
+      "key": "armyworm",
+      "en": "Fall Armyworm",
+      "mr": "लष्करी अळी",
+      "hi": "फॉल आर्मीवर्म / सैनिक कीट",
+      "description": "Voracious caterpillar eating whorls and leaving large ragged holes with frass.",
+      "control_organic": "Apply Bacillus thuringiensis (Bt) @ 2 g/L or Metarhizium rileyi.",
+      "control_chemical": "Spray chlorantraniliprole 18.5 SC @ 0.4 ml/L or emamectin benzoate 5 SG @ 0.5 g/L."
+    },
+    {
+      "id": 2,
+      "key": "bollworm",
+      "en": "Bollworm / Fruit Borer",
+      "mr": "बोंड अळी / फळ पोखरक अळी",
+      "hi": "फल छेदक / सुंडी",
+      "description": "Larvae boring into buds, flowers, and fruit causing premature drop and rot.",
+      "control_organic": "Install pheromone traps (5/acre) and spray HaNPV virus.",
+      "control_chemical": "Apply spinosad 45 SC @ 0.3 ml/L or flubendiamide 39.35 SC @ 0.3 ml/L."
+    },
+    {
+      "id": 3,
+      "key": "whitefly",
+      "en": "Whitefly",
+      "mr": "पांढरी माशी",
+      "hi": "सफेद मक्खी",
+      "description": "Tiny white flying insects on leaf undersides transmitting geminiviruses.",
+      "control_organic": "Yellow sticky cards (15-20/acre) and 5% neem seed kernel extract (NSKE).",
+      "control_chemical": "Spray diafenthiuron 50 WP @ 1 g/L or pyriproxyfen 10 EC @ 1.5 ml/L."
+    },
+    {
+      "id": 4,
+      "key": "thrips",
+      "en": "Thrips",
+      "mr": "फुलकिडे (थ्रिप्स)",
+      "hi": "थ्रिप्स / चुरड़ा",
+      "description": "Slender insects rasping leaf surface causing curling and silvery sheen.",
+      "control_organic": "Blue sticky traps and verticillium lecanii spray.",
+      "control_chemical": "Spray fipronil 5 SC @ 1.5 ml/L or spinetoram 11.7 SC @ 0.8 ml/L."
+    },
+    {
+      "id": 5,
+      "key": "stem_borer",
+      "en": "Stem Borer",
+      "mr": "खोडकिडा (स्टेम बोरर)",
+      "hi": "तना छेदक",
+      "description": "Larvae tunneling inside stems leading to dead heart and white earhead.",
+      "control_organic": "Release Trichogramma egg parasitoids @ 50,000/ha.",
+      "control_chemical": "Apply cartap hydrochloride 4G granules @ 10 kg/acre or chlorantraniliprole."
+    },
+    {
+      "id": 6,
+      "key": "leafhopper",
+      "en": "Leafhopper / Jassid",
+      "mr": "तुडतुडे (जॅसिड्स)",
+      "hi": "हरा फुदका / माहू",
+      "description": "Wedge-shaped insects causing hopper burn, yellowing margins, and curled tips.",
+      "control_organic": "Spray neem oil 10,000 ppm or Beauveria bassiana.",
+      "control_chemical": "Spray dinotefuran 20 SG @ 0.4 g/L or flonicamid 50 WG @ 0.3 g/L."
+    },
+    {
+      "id": 7,
+      "key": "caterpillar",
+      "en": "Leaf Roller / Caterpillar",
+      "mr": "पाने गुंडाळणारी अळी",
+      "hi": "पत्ती लपेटक कीट",
+      "description": "Larvae folding leaves with silk threads and feeding internally on chlorophyll.",
+      "control_organic": "Handpick folded leaves and spray neem cake extract.",
+      "control_chemical": "Apply indoxacarb 14.5 SC @ 0.5 ml/L or novaluron 10 EC @ 1.5 ml/L."
+    },
+    {
+      "id": 8,
+      "key": "beetle",
+      "en": "Flea Beetle / Blister Beetle",
+      "mr": "भुंगेरे / बीटल",
+      "hi": "भृंग / बीटल कीट",
+      "description": "Chewing beetles eating shot-holes in foliage and floral parts.",
+      "control_organic": "Dust wood ash or diatomaceous earth around crop rows.",
+      "control_chemical": "Spray cypermethrin 10 EC @ 1 ml/L or malathion 50 EC @ 1.5 ml/L."
+    },
+    {
+      "id": 9,
+      "key": "spider_mite",
+      "en": "Red Spider Mite",
+      "mr": "लाल कोळी",
+      "hi": "लाल मकड़ी",
+      "description": "Microscopic arachnids sucking cell sap and generating fine cobwebs.",
+      "control_organic": "Overhead water misting to disrupt webbing, sulfur dust 80 WP.",
+      "control_chemical": "Spray fenpyroximate 5 EC @ 1 ml/L or abamectin 1.9 EC @ 0.5 ml/L."
+    }
+  ]
+}

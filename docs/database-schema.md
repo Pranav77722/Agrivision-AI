@@ -141,3 +141,4 @@ Indexes: user_id, created_at DESC, crop_type
 | is_active | BOOLEAN | DEFAULT TRUE |
 | trained_at | TIMESTAMP | |
 | created_at | TIMESTAMP | DEFAULT NOW() |
+

@@ -12,6 +12,13 @@ env/
 .env
 .env.local
 .env.production
+.firebase/*.json
+!.firebase/service-account.example.json
+*firebase-adminsdk*.json
+google-services.json
+*/google-services.json
+!google-services.example.json
+!*/google-services.example.json
 
 # Build outputs
 dist/
@@ -52,7 +59,18 @@ coverage/
 .coverage
 htmlcov/
 
+# Uploads and User Media
+uploads/
+backend/uploads/
+*.jpg
+*.jpeg
+*.png
+!logo/*.png
+!mobile/assets/*.png
+!mobile/assets/**/*.png
+
 # Misc
 *.egg-info/
 .pytest_cache/
 .mypy_cache/
+

@@ -75,3 +75,4 @@
 - Supabase Storage for images and report files
 - AsyncStorage for local preferences (language, theme)
 - No large files in database rows
+

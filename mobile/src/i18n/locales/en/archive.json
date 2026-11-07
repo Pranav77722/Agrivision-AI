@@ -1,0 +1,15 @@
+{
+  "title": "Diagnosis Scan Archive",
+  "subtitle": "Complete timeline of all your crop inspections and treatments",
+  "searchArchive": "Search past scans by crop or disease...",
+  "filterAll": "All Crops",
+  "filterActive": "Infected",
+  "filterResolved": "Healthy / Resolved",
+  "compareButton": "Compare Scans",
+  "emptyArchiveTitle": "No Scans in Archive",
+  "emptyArchiveDesc": "Your past scans, disease records, and treatment outcomes will appear here.",
+  "deleteDiagnosis": "Delete Record",
+  "confirmDelete": "Are you sure you want to remove this scan from your history?",
+  "scanDate": "Scanned On",
+  "scanAccuracy": "Accuracy"
+}

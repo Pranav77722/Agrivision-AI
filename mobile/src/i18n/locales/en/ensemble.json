@@ -1,0 +1,19 @@
+{
+  "title": "Ensemble Model Comparison",
+  "subtitle": "Multi-architecture consensus voting for verified agricultural reliability",
+  "ensembleSummary": "Ensemble Consensus",
+  "consensusDecision": "Consensus Prediction",
+  "agreementLevel": "Model Agreement",
+  "modelsHeader": "Individual Model Breakdown",
+  "weightsHeader": "Soft Voting Weights",
+  "resnet50": "ResNet-50",
+  "resnetDesc": "Deep residual features for structural leaf lesions",
+  "efficientnet": "EfficientNet-B4",
+  "efficientnetDesc": "Compound scaling for subtle discoloration nuances",
+  "vit": "Vision Transformer (ViT)",
+  "vitDesc": "Global self-attention for cross-leaf symptom patterns",
+  "agreementHigh": "High Consensus (3/3 Models Agree)",
+  "agreementModerate": "Moderate Consensus (2/3 Models Agree)",
+  "agreementLow": "Divergent Predictions",
+  "votingStrategy": "Dynamic Soft Voting (Weighted Confidence)"
+}

@@ -100,3 +100,4 @@ User selects language
 3. **Mark machine-translated content** — Distinguish from expert-reviewed translations
 4. **Test Devanagari rendering** — Verify fonts support conjunct characters
 5. **Handle RTL-awareness** — Not needed for current languages, but architecture supports it
+

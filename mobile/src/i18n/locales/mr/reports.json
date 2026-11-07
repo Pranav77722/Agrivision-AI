@@ -1,0 +1,19 @@
+{
+  "title": "शेती सल्लागार अहवाल",
+  "subtitle": "पीक विमा, बँक कर्ज किंवा कृषी तज्ञांसाठी अधिकृत PDF अहवाल मिळवा",
+  "generateReport": "नवीन अहवाल तयार करा",
+  "downloadPdf": "PDF डाउनलोड करा",
+  "shareReport": "WhatsApp वर अहवाल पाठवा",
+  "reportDetails": "अहवाल माहिती",
+  "reportNumber": "अहवाल क्रमांक: #{{id}}",
+  "generatedOn": "तयार केल्याची तारीख: {{date}}",
+  "farmerName": "शेतकऱ्याचे नाव",
+  "farmLocation": "शेतीचे ठिकाण",
+  "cropDiagnosed": "तपासलेले पीक",
+  "conditionDetected": "आढळलेला रोग / स्थिती",
+  "confidenceScore": "AI अचूकता विश्वास",
+  "severityRating": "नुकसानीची तीव्रता",
+  "actionPlanSummary": "उपाययोजना सारांश",
+  "officialDisclaimer": "हा अहवाल अॅग्रीव्हिजन AI+ च्या डीप लर्निंग मॉडेल्स आणि ICAR मार्गदर्शक तत्त्वांवर आधारित आहे.",
+  "noReports": "अद्याप कोणताही अहवाल तयार केलेला नाही. नवीन अहवाल तयार करण्यासाठी पीक स्कॅन करा."
+}

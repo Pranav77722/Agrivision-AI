@@ -1,0 +1,15 @@
+{
+  "title": "Kisan AI Assistant",
+  "subtitle": "24/7 Voice & Text Farming Advisor in your native language",
+  "inputPlaceholder": "Ask any agricultural question...",
+  "listening": "Listening... Speak in Hindi, Marathi, or English",
+  "suggestedHeader": "Suggested Questions",
+  "q1": "How do I control tomato early blight organically?",
+  "q2": "What fertilizer ratio is recommended for wheat at tillering?",
+  "q3": "How can I prevent yellow vein mosaic in ladyfinger?",
+  "q4": "Which paddy seed variety gives highest yield in heavy rainfall?",
+  "aiTyping": "Kisan AI is thinking...",
+  "micPermission": "Microphone permission is needed for voice queries",
+  "languageIndicator": "Responding in: {{lang}}",
+  "clearChat": "Clear Conversation"
+}

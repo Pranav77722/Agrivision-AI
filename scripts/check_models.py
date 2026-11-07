@@ -99,3 +99,4 @@ def check_models():
 if __name__ == "__main__":
     success = check_models()
     sys.exit(0 if success else 1)
+

@@ -1,0 +1,21 @@
+{
+  "title": "Disease Severity Estimation",
+  "subtitle": "Pixel-level semantic segmentation of leaf damage and necrotic lesions",
+  "healthyArea": "Healthy Leaf Area",
+  "diseasedArea": "Infected / Necrotic Area",
+  "damagePercentage": "Damage Percentage",
+  "severityClass": "Severity Classification",
+  "urgency": "Action Urgency",
+  "mild": "Mild (< 10%)",
+  "mildDesc": "Isolated spots; crop defense system is active. Preventive spray recommended.",
+  "moderate": "Moderate (10% - 30%)",
+  "moderateDesc": "Spreading lesions; active intervention required within 48 hours.",
+  "severe": "Severe (30% - 60%)",
+  "severeDesc": "Heavy tissue damage; curative fungicide spray required immediately.",
+  "critical": "Critical (> 60%)",
+  "criticalDesc": "Widespread necrosis; isolate infected section to protect rest of the field.",
+  "actionWindow": "Intervention Window",
+  "actionImmediate": "Within 24 Hours",
+  "actionPrompt": "Within 48-72 Hours",
+  "actionMonitor": "Routine Weekly Observation"
+}

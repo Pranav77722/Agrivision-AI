@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "Agrivision AI+",
+    "slug": "agrivision-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "agrivision",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.agrivision.ai"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#14532D",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.agrivision.ai",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-splash-screen",
+      "expo-sharing",
+      "expo-localization",
+      "expo-font",
+      "expo-asset",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Agrivision AI+ to access your camera to diagnose crop diseases."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Agrivision AI+ to access your photos to diagnose crop leaves."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Agrivision AI+ to use your location for accurate hyper-local weather and crop advisory."
+        }
+      ]
+    ]
+  }
+}

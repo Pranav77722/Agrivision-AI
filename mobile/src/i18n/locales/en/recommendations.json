@@ -1,0 +1,25 @@
+{
+  "title": "Advisory & Treatment Plan",
+  "subtitle": "Integrated Pest Management (IPM) guidelines compliant with Indian agricultural safety standards",
+  "tabs": {
+    "organic": "Organic & Bio",
+    "chemical": "Chemical Control",
+    "cultural": "Farm Practices",
+    "safety": "Safety & PPE"
+  },
+  "organicHeader": "Eco-friendly Organic Remedies",
+  "chemicalHeader": "Targeted Chemical Interventions",
+  "culturalHeader": "Agronomic Cultural Measures",
+  "safetyHeader": "Sprayer Safety & Handling",
+  "dosage": "Dosage",
+  "method": "Application Method",
+  "timing": "Best Spray Timing",
+  "preHarvestInterval": "Pre-Harvest Interval (PHI)",
+  "precautions": "Precautionary Notes",
+  "morningOrEvening": "Spray during cool morning (7-10 AM) or late afternoon (4-6 PM)",
+  "wearMask": "Always wear face mask, gloves, and protective boots during chemical spraying.",
+  "neemOil": "Neem Oil 10,000 PPM @ 2-3 ml per liter of water with soap surfactant.",
+  "trichoderma": "Trichoderma viride bio-fungicide soil drenching @ 5 kg / acre.",
+  "copperOxychloride": "Copper Oxychloride 50 WP @ 2.5 g / liter of water.",
+  "mancozeb": "Mancozeb 75 WP @ 2 g / liter of water."
+}
