@@ -116,7 +116,7 @@ export const diagnosisService = {
         throw new NotAPlantError(errorMsg, detail?.detected_object, detail?.reasons);
       }
 
-      console.error('Diagnosis API error:', err?.message || err);
+      console.warn('Diagnosis API error:', err?.message || err);
       throw err;
     }
 
@@ -179,7 +179,7 @@ function mapBackendToDiagnosisRecord(data: any, fallbackImageUrl: string, crop: 
       healthyAreaPercent: 100 - sevPercent,
       diseasedAreaPercent: sevPercent,
       severityClass: sevClass,
-      urgencyWindow: isHealthy ? 'No treatment needed' : (sevClass === 'severe' || sevClass === 'critical' ? '24 - 48 hours' : '3 - 5 days'),
+      urgencyWindow: data.recommendations?.urgency_window || (isHealthy ? 'No treatment needed' : (sevClass === 'severe' || sevClass === 'critical' ? '24 - 48 hours' : '3 - 5 days')),
     },
     ensemble: {
       consensusClass: data.predicted_disease || 'Crop Disease',
@@ -195,24 +195,50 @@ function mapBackendToDiagnosisRecord(data: any, fallbackImageUrl: string, crop: 
     explainability: {
       heatmapUri: data.explainability_url || fallbackImageUrl,
       originalImageUri: data.image_url || fallbackImageUrl,
-      focusDescription: isHealthy ? 'Healthy leaf surface with uniform chlorophyll distribution.' : 'Grad-CAM attention focuses on chlorotic and necrotic lesion centers on leaf blade.',
-      attentionRegions: [
-        { label: isHealthy ? 'Uniform Foliar Chlorophyll' : 'Primary Necrotic Region', score: 0.88 },
-        { label: isHealthy ? 'Normal Leaf Margin' : 'Chlorotic Margin', score: 0.76 },
-      ],
+      focusDescription:
+        data.ensemble_results?.nvidia_nemotron_vision?.focus ||
+        (isHealthy
+          ? 'Healthy leaf surface with uniform foliar chlorophyll distribution.'
+          : 'AI vision excitation focuses on chlorotic margins and necrotic lesion centers.'),
+      attentionRegions:
+        data.ensemble_results?.nvidia_nemotron_vision?.attention_regions || [
+          { label: isHealthy ? 'Uniform Chlorophyll' : 'Primary Necrotic Region', score: 0.92 },
+          { label: isHealthy ? 'Healthy Vascular Veins' : 'Chlorotic Margin Halo', score: 0.85 },
+        ],
     },
-    symptoms: data.recommendations?.preventive_measures || [
-      'Concentric dark lesions on leaf surfaces',
-      'Yellow chlorotic halos around infected areas',
-      'Premature foliage drop',
-    ],
+    symptoms: (() => {
+      const rawSymptoms = data.recommendations?.symptoms || data.symptoms;
+      if (Array.isArray(rawSymptoms) && rawSymptoms.length > 0) return rawSymptoms;
+      if (typeof rawSymptoms === 'string' && rawSymptoms.trim().length > 0) {
+        return rawSymptoms.split('\n').filter((s: string) => s.trim().length > 0);
+      }
+      return isHealthy
+        ? [
+            'Uniform healthy chlorophyll distribution across leaf lamina',
+            'No visible necrotic lesions, rust pustules, or powdery mildew',
+            'Normal cell turgidity with intact vascular leaf veins',
+          ]
+        : [
+            'Concentric dark lesions with distinct necrotic zones',
+            'Yellow chlorotic halos surrounding infected leaf tissue',
+            'Premature leaf defoliation and foliar tissue senescence',
+          ];
+    })(),
     recommendations: {
-      organic: data.recommendations?.organic_control || ['Neem Seed Kernel Extract 5% foliar spray'],
-      chemical: data.recommendations?.chemical_control || ['Mancozeb 75 WP @ 2.0 g/L'],
-      cultural: data.recommendations?.cultural_practices || ['Prune infected leaves', 'Ensure proper spacing'],
-      safety: ['Wear protective mask and gloves', 'Maintain 7-day pre-harvest interval'],
-      dosage: data.recommendations?.dosage || '2.0 g/L',
-      intervalDays: 10,
+      organic: Array.isArray(data.recommendations?.organic_control) && data.recommendations.organic_control.length > 0
+        ? data.recommendations.organic_control
+        : ['Neem Seed Kernel Extract 5% foliar spray @ 5 ml/L'],
+      chemical: Array.isArray(data.recommendations?.chemical_control) && data.recommendations.chemical_control.length > 0
+        ? data.recommendations.chemical_control
+        : ['Mancozeb 75 WP @ 2.0 g/L'],
+      cultural: Array.isArray(data.recommendations?.cultural_practices) && data.recommendations.cultural_practices.length > 0
+        ? data.recommendations.cultural_practices
+        : ['Prune and dispose of infected leaves', 'Ensure proper plant spacing for airflow'],
+      safety: Array.isArray(data.recommendations?.safety) && data.recommendations.safety.length > 0
+        ? data.recommendations.safety
+        : ['Wear protective mask and gloves', 'Maintain 7-day pre-harvest interval'],
+      dosage: data.recommendations?.dosage || '2.0 g / L',
+      intervalDays: data.recommendations?.interval_days || 10,
     },
     createdAt: data.created_at || new Date().toISOString(),
   };

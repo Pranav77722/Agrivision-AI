@@ -92,6 +92,7 @@ class DiagnosisService:
         detected_crop = disease_res["crop_type"] if crop_type == "Unknown" else crop_type
 
         # 3.5 NVIDIA NIM Multimodal Vision AI Enhancement
+        nvidia_res = None
         try:
             from app.services.nvidia_vision_service import NvidiaVisionService
             nvidia_res = await NvidiaVisionService.analyze_leaf(
@@ -110,7 +111,10 @@ class DiagnosisService:
                 disease_res["ensemble_results"]["nvidia_nemotron_vision"] = {
                     "disease": nvidia_res["predicted_disease"],
                     "confidence": float(nvidia_res.get("confidence", 0.92)),
-                    "reasoning": nvidia_res.get("ai_reasoning", "")
+                    "pathogen": nvidia_res.get("pathogen", ""),
+                    "reasoning": nvidia_res.get("ai_reasoning", ""),
+                    "focus": nvidia_res.get("focus_description", ""),
+                    "attention_regions": nvidia_res.get("attention_regions", [])
                 }
         except Exception as ne:
             logger.warning(f"NVIDIA Vision enhancement skipped: {ne}")
@@ -120,6 +124,10 @@ class DiagnosisService:
         if nvidia_res and nvidia_res.get("is_healthy"):
             severity_res["severity_level"] = "Healthy"
             severity_res["severity_percentage"] = 0.0
+        elif nvidia_res and "diseased_area_percent" in nvidia_res:
+            severity_res["severity_percentage"] = float(nvidia_res["diseased_area_percent"])
+            if nvidia_res.get("severity_level"):
+                severity_res["severity_level"] = str(nvidia_res["severity_level"]).capitalize()
         elif nvidia_res and nvidia_res.get("severity_level") in ["Mild", "Moderate", "Severe"]:
             # Harmonize with NVIDIA pathology assessment if local CV is uncertain
             if severity_res["severity_level"] == "Healthy":
@@ -143,6 +151,28 @@ class DiagnosisService:
             disease_name=predicted_disease,
             language=language
         )
+        if nvidia_res:
+            # Enrich recommendations with clinical details extracted directly by the vision model
+            if nvidia_res.get("symptoms"):
+                recommendations["symptoms"] = nvidia_res["symptoms"]
+            if nvidia_res.get("organic_control"):
+                recommendations["organic_control"] = nvidia_res["organic_control"]
+            if nvidia_res.get("chemical_control"):
+                recommendations["chemical_control"] = nvidia_res["chemical_control"]
+            if nvidia_res.get("cultural_practices"):
+                recommendations["cultural_practices"] = nvidia_res["cultural_practices"]
+            if nvidia_res.get("safety_measures"):
+                recommendations["safety"] = nvidia_res["safety_measures"]
+            if nvidia_res.get("dosage"):
+                recommendations["dosage"] = nvidia_res["dosage"]
+            if nvidia_res.get("spray_interval_days"):
+                recommendations["interval_days"] = nvidia_res["spray_interval_days"]
+            if nvidia_res.get("pathogen"):
+                recommendations["pathogen"] = nvidia_res["pathogen"]
+            if nvidia_res.get("urgency_window"):
+                recommendations["urgency_window"] = nvidia_res["urgency_window"]
+            if nvidia_res.get("local_names"):
+                recommendations["local_names"] = nvidia_res["local_names"]
 
         # 8. Persist to Database
         diagnosis = await self.repo.create(

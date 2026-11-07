@@ -49,7 +49,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ diagnosis }) => {
           <ProgressBar
             color={theme.colors.secondary}
             height={8}
-            progress={diagnosis.confidence}
+            progress={diagnosis.confidence > 1 ? diagnosis.confidence / 100 : diagnosis.confidence}
           />
         </View>
 

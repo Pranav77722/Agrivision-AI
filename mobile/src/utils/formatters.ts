@@ -10,7 +10,8 @@ export const formatDate = (dateString: string, dateFormat = 'dd MMM yyyy, hh:mm 
 };
 
 export const formatConfidence = (score: number): string => {
-  return `${Math.round(score * 10) / 10}%`;
+  const normalized = score <= 1.0 ? score * 100 : score;
+  return `${Math.round(normalized * 10) / 10}%`;
 };
 
 export const formatCurrencyInr = (amount: number): string => {

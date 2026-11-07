@@ -106,7 +106,7 @@ class Settings(BaseSettings):
     ]
     NVIDIA_MODEL: str = "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
     NVIDIA_API_URL: str = "https://integrate.api.nvidia.com/v1/chat/completions"
-    NVIDIA_TIMEOUT_SECONDS: int = 15
+    NVIDIA_TIMEOUT_SECONDS: int = 25
 
     # Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = 120
