@@ -49,6 +49,14 @@ class DiagnosisService:
             image = Image.open(io.BytesIO(image_bytes))
             image.verify()
             image = Image.open(io.BytesIO(image_bytes))  # Re-open after verify
+            # Memory optimization for production cloud containers (Voroa Nano / 512MB RAM):
+            # Downscale large mobile camera photos (e.g. 12MP/50MP) to max 1024x1024 to prevent cgroup OOM kills
+            if max(image.size) > 1024:
+                image.thumbnail((1024, 1024), Image.Resampling.LANCZOS)
+                buf = io.BytesIO()
+                image.convert("RGB").save(buf, format="JPEG", quality=85)
+                image_bytes = buf.getvalue()
+                logger.info(f"Downscaled high-res leaf image to {image.size} for lightweight memory efficiency.")
         except Exception as e:
             logger.error(f"Invalid image format: {e}")
             raise ValueError("Invalid image file. Please upload a valid JPG or PNG.")

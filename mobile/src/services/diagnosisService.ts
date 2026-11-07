@@ -67,12 +67,29 @@ export const diagnosisService = {
       formData.append('image', { uri: imageUri, name: filename, type });
       formData.append('crop_type', crop);
 
-      const response = await apiClient.post<any>('/diagnosis/predict', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        timeout: 25000,
-      });
+      let response: any;
+      try {
+        response = await apiClient.post<any>('/diagnosis/predict', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          timeout: 45000,
+        });
+      } catch (firstErr: any) {
+        // If 502/503 during cloud container reboot, retry once after 2 seconds
+        if (firstErr?.response?.status === 502 || firstErr?.response?.status === 503) {
+          console.log('Server warming up (502/503). Retrying diagnosis request in 2s...');
+          await new Promise((r) => setTimeout(r, 2000));
+          response = await apiClient.post<any>('/diagnosis/predict', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+            timeout: 45000,
+          });
+        } else {
+          throw firstErr;
+        }
+      }
 
       if (
         response.data &&
@@ -82,7 +99,7 @@ export const diagnosisService = {
         cloudImageUrl = response.data.image_url || cloudImageUrl;
         record = mapBackendToDiagnosisRecord(response.data, cloudImageUrl, crop);
       } else {
-        record = generateMockDiagnosis(cloudImageUrl, crop);
+        throw new Error(response.data?.message || 'AI model could not process leaf image.');
       }
     } catch (err: any) {
       // Check if backend specifically identified image as NOT a plant!
@@ -99,9 +116,8 @@ export const diagnosisService = {
         throw new NotAPlantError(errorMsg, detail?.detected_object, detail?.reasons);
       }
 
-      console.warn('Backend diagnosis predict network fallback:', err);
-      // Fallback realistic AI response tailored to selected crop ONLY on true offline network disconnect
-      record = generateMockDiagnosis(cloudImageUrl, crop);
+      console.error('Diagnosis API error:', err?.message || err);
+      throw err;
     }
 
     // 2. Persist Cloudinary URL and model analysis to Firebase Firestore
@@ -119,7 +135,7 @@ export const diagnosisService = {
         symptoms: record.symptoms,
         createdAt: record.createdAt,
       }).catch((err) => console.warn('Firestore backend sync warning:', err));
-    } catch {}
+    } catch { }
 
     try {
       // Also persist to client Firestore

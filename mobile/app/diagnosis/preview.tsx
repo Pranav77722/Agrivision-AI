@@ -68,7 +68,15 @@ export default function PreviewScreen() {
           ]
         );
       } else {
-        Alert.alert(t('common:error'), t('common:networkError'));
+        const errorMsg =
+          err?.response?.data?.detail?.message ||
+          err?.response?.data?.message ||
+          err?.message ||
+          t('common:networkError', { defaultValue: 'Could not connect to diagnosis server. Please try again.' });
+        Alert.alert(
+          t('common:error', { defaultValue: 'Diagnosis Notice' }),
+          errorMsg
+        );
       }
     } finally {
       setAnalyzing(false);
