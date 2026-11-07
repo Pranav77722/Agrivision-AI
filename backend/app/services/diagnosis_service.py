@@ -78,13 +78,45 @@ class DiagnosisService:
                 folder="crop-scans"
             )
 
-        # 3. Disease Classification & Ensemble
+        # 3. Disease Classification & Ensemble (Local Agronomic CV)
         disease_res = self.classifier.predict(image, crop_hint=crop_type or "Unknown")
         predicted_disease = disease_res["predicted_disease"]
         detected_crop = disease_res["crop_type"] if crop_type == "Unknown" else crop_type
 
+        # 3.5 NVIDIA NIM Multimodal Vision AI Enhancement
+        try:
+            from app.services.nvidia_vision_service import NvidiaVisionService
+            nvidia_res = await NvidiaVisionService.analyze_leaf(
+                image_bytes=image_bytes,
+                crop_hint=crop_type or "Unknown",
+                cloud_image_url=uploaded_image_url,
+                language=language
+            )
+            if nvidia_res and nvidia_res.get("predicted_disease"):
+                logger.info(f"Applying NVIDIA NIM Vision diagnosis: {nvidia_res['predicted_disease']}")
+                predicted_disease = nvidia_res["predicted_disease"]
+                if nvidia_res.get("crop_type") and (detected_crop == "Unknown" or not detected_crop):
+                    detected_crop = str(nvidia_res["crop_type"]).capitalize()
+                if nvidia_res.get("confidence"):
+                    disease_res["confidence"] = float(nvidia_res["confidence"])
+                disease_res["ensemble_results"]["nvidia_nemotron_vision"] = {
+                    "disease": nvidia_res["predicted_disease"],
+                    "confidence": float(nvidia_res.get("confidence", 0.92)),
+                    "reasoning": nvidia_res.get("ai_reasoning", "")
+                }
+        except Exception as ne:
+            logger.warning(f"NVIDIA Vision enhancement skipped: {ne}")
+
         # 4. Severity Analysis
         severity_res = self.severity_analyzer.analyze(image)
+        if nvidia_res and nvidia_res.get("is_healthy"):
+            severity_res["severity_level"] = "Healthy"
+            severity_res["severity_percentage"] = 0.0
+        elif nvidia_res and nvidia_res.get("severity_level") in ["Mild", "Moderate", "Severe"]:
+            # Harmonize with NVIDIA pathology assessment if local CV is uncertain
+            if severity_res["severity_level"] == "Healthy":
+                severity_res["severity_level"] = nvidia_res["severity_level"]
+                severity_res["severity_percentage"] = 25.0 if nvidia_res["severity_level"] == "Moderate" else (10.0 if nvidia_res["severity_level"] == "Mild" else 60.0)
 
         # 5. Pest Detection
         pest_res = self.pest_detector.detect(image)

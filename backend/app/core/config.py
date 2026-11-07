@@ -94,9 +94,19 @@ class Settings(BaseSettings):
     BHASHINI_PIPELINE_URL: str = "https://dhruva-api.bhashini.gov.in/services/inference"
 
     # LLM Provider
-    LLM_PROVIDER: str = "gemini"
+    LLM_PROVIDER: str = "nvidia"
     GEMINI_API_KEY: str = ""
     OPENAI_API_KEY: str = ""
+
+    # NVIDIA NIM Vision AI
+    NVIDIA_API_KEY: str = "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"
+    NVIDIA_BACKUP_KEYS: List[str] = [
+        "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",
+        "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"
+    ]
+    NVIDIA_MODEL: str = "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
+    NVIDIA_API_URL: str = "https://integrate.api.nvidia.com/v1/chat/completions"
+    NVIDIA_TIMEOUT_SECONDS: int = 15
 
     # Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = 120
