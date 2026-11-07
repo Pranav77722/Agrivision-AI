@@ -21,13 +21,14 @@ export interface AuthState {
 
 export type CropType =
   | 'tomato'
-  | 'rice'
-  | 'wheat'
-  | 'cotton'
   | 'potato'
   | 'maize'
-  | 'soybean'
-  | 'sugarcane';
+  | 'rice'
+  | 'cotton'
+  | 'wheat'
+  | 'pepper'
+  | 'apple'
+  | 'grape';
 
 export type SeverityClass = 'healthy' | 'mild' | 'moderate' | 'severe' | 'critical';
 

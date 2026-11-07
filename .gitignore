@@ -48,6 +48,9 @@ ml/datasets/processed/
 # OS
 .DS_Store
 Thumbs.db
+*.db
+*.sqlite*
+backend/uploads/
 desktop.ini
 
 # Logs

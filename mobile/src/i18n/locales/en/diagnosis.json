@@ -15,13 +15,14 @@
   "selectCrop": "Select Crop Species",
   "crops": {
     "tomato": "Tomato",
-    "rice": "Paddy / Rice",
-    "wheat": "Wheat",
-    "cotton": "Cotton",
     "potato": "Potato",
     "maize": "Corn / Maize",
-    "soybean": "Soybean",
-    "sugarcane": "Sugarcane"
+    "rice": "Paddy / Rice",
+    "cotton": "Cotton",
+    "wheat": "Wheat",
+    "pepper": "Chilli / Pepper",
+    "apple": "Apple",
+    "grape": "Grape"
   },
   "tipsTitle": "Tips for Accurate Diagnosis",
   "tip1": "Place a single leaf flat in natural daylight.",

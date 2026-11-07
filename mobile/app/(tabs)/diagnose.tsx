@@ -15,13 +15,14 @@ import { pickImageFromGallery } from '../../src/utils/imageUtils';
 
 const CROP_SPECIES: { id: CropType; icon: keyof typeof Ionicons.glyphMap }[] = [
   { id: 'tomato', icon: 'nutrition-outline' },
-  { id: 'rice', icon: 'water-outline' },
-  { id: 'wheat', icon: 'leaf-outline' },
-  { id: 'cotton', icon: 'cloud-outline' },
   { id: 'potato', icon: 'globe-outline' },
   { id: 'maize', icon: 'sunny-outline' },
-  { id: 'soybean', icon: 'flower-outline' },
-  { id: 'sugarcane', icon: 'sparkles-outline' },
+  { id: 'rice', icon: 'water-outline' },
+  { id: 'cotton', icon: 'cloud-outline' },
+  { id: 'wheat', icon: 'leaf-outline' },
+  { id: 'pepper', icon: 'flame-outline' },
+  { id: 'apple', icon: 'basket-outline' },
+  { id: 'grape', icon: 'wine-outline' },
 ];
 
 export default function DiagnoseTabScreen() {

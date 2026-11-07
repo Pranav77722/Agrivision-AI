@@ -74,7 +74,11 @@ export const diagnosisService = {
         timeout: 25000,
       });
 
-      if (response.data && response.data.predicted_disease) {
+      if (
+        response.data &&
+        response.data.predicted_disease &&
+        response.data.predicted_disease !== 'Model Weights Missing'
+      ) {
         cloudImageUrl = response.data.image_url || cloudImageUrl;
         record = mapBackendToDiagnosisRecord(response.data, cloudImageUrl, crop);
       } else {
@@ -143,10 +147,10 @@ export const diagnosisService = {
 };
 
 function mapBackendToDiagnosisRecord(data: any, fallbackImageUrl: string, crop: CropType): DiagnosisRecord {
-  const isHealthy = data.predicted_disease?.toLowerCase().includes('healthy') || false;
+  const isHealthy = data.is_healthy ?? (data.predicted_disease?.toLowerCase().includes('healthy') || false);
   const rawSev = (data.severity?.toLowerCase() || 'mild');
-  const sevClass = (['healthy', 'mild', 'moderate', 'severe', 'critical'].includes(rawSev) ? rawSev : 'moderate') as any;
-  const sevPercent = Math.round(data.severity_percentage || (sevClass === 'severe' ? 35 : 15));
+  const sevClass = isHealthy ? 'healthy' : (['healthy', 'mild', 'moderate', 'severe', 'critical'].includes(rawSev) ? rawSev : 'moderate') as any;
+  const sevPercent = isHealthy ? 0 : Math.round(data.severity_percentage || (sevClass === 'severe' ? 35 : 15));
 
   return {
     id: data.id || `diag_${Date.now()}`,
@@ -159,7 +163,7 @@ function mapBackendToDiagnosisRecord(data: any, fallbackImageUrl: string, crop: 
       healthyAreaPercent: 100 - sevPercent,
       diseasedAreaPercent: sevPercent,
       severityClass: sevClass,
-      urgencyWindow: sevClass === 'severe' || sevClass === 'critical' ? '24 - 48 hours' : '3 - 5 days',
+      urgencyWindow: isHealthy ? 'No treatment needed' : (sevClass === 'severe' || sevClass === 'critical' ? '24 - 48 hours' : '3 - 5 days'),
     },
     ensemble: {
       consensusClass: data.predicted_disease || 'Crop Disease',
@@ -175,10 +179,10 @@ function mapBackendToDiagnosisRecord(data: any, fallbackImageUrl: string, crop: 
     explainability: {
       heatmapUri: data.explainability_url || fallbackImageUrl,
       originalImageUri: data.image_url || fallbackImageUrl,
-      focusDescription: 'Grad-CAM attention focuses on chlorotic and necrotic lesion centers on leaf blade.',
+      focusDescription: isHealthy ? 'Healthy leaf surface with uniform chlorophyll distribution.' : 'Grad-CAM attention focuses on chlorotic and necrotic lesion centers on leaf blade.',
       attentionRegions: [
-        { label: 'Primary Necrotic Region', score: 0.88 },
-        { label: 'Chlorotic Margin', score: 0.76 },
+        { label: isHealthy ? 'Uniform Foliar Chlorophyll' : 'Primary Necrotic Region', score: 0.88 },
+        { label: isHealthy ? 'Normal Leaf Margin' : 'Chlorotic Margin', score: 0.76 },
       ],
     },
     symptoms: data.recommendations?.preventive_measures || [
@@ -222,6 +226,30 @@ function generateMockDiagnosis(imageUri: string, crop: CropType): DiagnosisRecor
         intervalDays: 10,
       },
     },
+    potato: {
+      name: 'Potato Late Blight (Phytophthora infestans)',
+      symptoms: ['Water-soaked dark lesions on leaf tips with white cottony mold under high humidity.'],
+      rec: {
+        organic: ['Trichoderma harzianum soil and foliar drench.'],
+        chemical: ['Dimethomorph 50 WP @ 1.0 g/L or Cymoxanil 8% + Mancozeb 64% WP @ 2.5 g/L.'],
+        cultural: ['Hill up soil well to cover tubers.', 'Destroy infected volunteer tubers.'],
+        safety: ['Observe pre-harvest withholding period of 14 days.'],
+        dosage: '2.5 g / L',
+        intervalDays: 7,
+      },
+    },
+    maize: {
+      name: 'Maize Northern Leaf Blight (Exserohilum turcicum)',
+      symptoms: ['Long, elliptical, grayish-green cigar-shaped lesions on leaves.'],
+      rec: {
+        organic: ['Neem oil 10,000 PPM foliar application.'],
+        chemical: ['Azoxystrobin 18.2% + Difenoconazole 11.4% SC @ 1 ml/L.'],
+        cultural: ['Deep summer plowing to bury infested debris.'],
+        safety: ['Wash eyes thoroughly if mist contacts face.'],
+        dosage: '1.0 ml / L',
+        intervalDays: 14,
+      },
+    },
     rice: {
       name: 'Rice Bacterial Leaf Blight (Xanthomonas oryzae)',
       symptoms: [
@@ -243,6 +271,21 @@ function generateMockDiagnosis(imageUri: string, crop: CropType): DiagnosisRecor
         intervalDays: 12,
       },
     },
+    cotton: {
+      name: 'Cotton Bacterial Blight / Angular Leaf Spot',
+      symptoms: [
+        'Angular brown water-soaked spots bounded by veins.',
+        'Black arm symptoms on petioles and stems.',
+      ],
+      rec: {
+        organic: ['Copper sulfate + lime Bordeaux mixture (1%).'],
+        chemical: ['Copper Oxychloride 50 WP @ 3.0 g/L + Streptocycline @ 0.1 g/L.'],
+        cultural: ['Destroy crop residue post harvest.'],
+        safety: ['Protective goggles and waterproof apron recommended.'],
+        dosage: '3.0 g / L',
+        intervalDays: 10,
+      },
+    },
     wheat: {
       name: 'Wheat Yellow Stripe Rust (Puccinia striiformis)',
       symptoms: [
@@ -259,67 +302,48 @@ function generateMockDiagnosis(imageUri: string, crop: CropType): DiagnosisRecor
         intervalDays: 14,
       },
     },
-    cotton: {
-      name: 'Cotton Bacterial Blight / Angular Leaf Spot',
+    pepper: {
+      name: 'Pepper Bacterial Spot (Xanthomonas vesicatoria)',
       symptoms: [
-        'Angular brown water-soaked spots bounded by veins.',
-        'Black arm symptoms on petioles and stems.',
+        'Small dark circular spots with distinct yellow halos.',
+        'Premature leaf defoliation in severe infections.',
       ],
       rec: {
-        organic: ['Copper sulfate + lime Bordeaux mixture (1%).'],
-        chemical: ['Copper Oxychloride 50 WP @ 3.0 g/L + Streptocycline @ 0.1 g/L.'],
-        cultural: ['Destroy crop residue post harvest.'],
-        safety: ['Protective goggles and waterproof apron recommended.'],
-        dosage: '3.0 g / L',
+        organic: ['Pseudomonas fluorescens foliar spray @ 5 g/L.'],
+        chemical: ['Copper Hydroxide 53.8 DF @ 2.0 g/L + Streptocycline @ 0.1 g/L.'],
+        cultural: ['Use certified disease-free seedlings.', 'Avoid working in wet foliage.'],
+        safety: ['Wear rubber gloves when handling bactericides.'],
+        dosage: '2.0 g / L',
         intervalDays: 10,
       },
     },
-    potato: {
-      name: 'Potato Late Blight (Phytophthora infestans)',
-      symptoms: ['Water-soaked dark lesions on leaf tips with white cottony mold under high humidity.'],
+    apple: {
+      name: 'Apple Scab (Venturia inaequalis)',
+      symptoms: [
+        'Olive-green to dark brown velvety circular lesions on leaf blades.',
+        'Crinkling and premature leaf drop.',
+      ],
       rec: {
-        organic: ['Trichoderma harzianum soil and foliar drench.'],
-        chemical: ['Dimethomorph 50 WP @ 1.0 g/L or Cymoxanil 8% + Mancozeb 64% WP @ 2.5 g/L.'],
-        cultural: ['Hill up soil well to cover tubers.', 'Destroy infected volunteer tubers.'],
-        safety: ['Observe pre-harvest withholding period of 14 days.'],
-        dosage: '2.5 g / L',
-        intervalDays: 7,
-      },
-    },
-    maize: {
-      name: 'Maize Northern Leaf Blight (Exserohilum turcicum)',
-      symptoms: ['Long, elliptical, grayish-green cigar-shaped lesions.'],
-      rec: {
-        organic: ['Neem oil 10,000 PPM foliar application.'],
-        chemical: ['Azoxystrobin 18.2% + Difenoconazole 11.4% SC @ 1 ml/L.'],
-        cultural: ['Deep summer plowing to bury infested debris.'],
-        safety: ['Wash eyes thoroughly if mist contacts face.'],
-        dosage: '1.0 ml / L',
-        intervalDays: 14,
-      },
-    },
-    soybean: {
-      name: 'Soybean Rust (Phakopsora pachyrhizi)',
-      symptoms: ['Tiny reddish brown polygons on lower leaf surface.'],
-      rec: {
-        organic: ['Pseudomonas fluorescens 1% WP @ 5 g/L.'],
-        chemical: ['Hexaconazole 5% EC @ 2 ml/L or Propiconazole 25% EC @ 1 ml/L.'],
-        cultural: ['Avoid late sowing beyond optimal monsoon window.'],
-        safety: ['Wear rubber boots in field.'],
-        dosage: '1.5 ml / L',
+        organic: ['Lime sulfur dormant spray.', 'Neem oil spray @ 3 ml/L.'],
+        chemical: ['Difenoconazole 25 EC @ 0.5 ml/L or Captan 50 WP @ 2.5 g/L.'],
+        cultural: ['Rake and destroy fallen leaves in autumn.'],
+        safety: ['Observe pre-harvest interval of 14 days.'],
+        dosage: '0.5 ml / L',
         intervalDays: 12,
       },
     },
-    sugarcane: {
-      name: 'Sugarcane Red Rot (Colletotrichum falcatum)',
-      symptoms: ['Third and fourth leaf yellowing, red discoloration with transverse white patches inside stalk.'],
+    grape: {
+      name: 'Grape Black Rot (Guignardia bidwellii)',
+      symptoms: [
+        'Circular reddish-brown necrotic spots with tiny black fruiting bodies on leaf blade.',
+      ],
       rec: {
-        organic: ['Sett treatment with Trichoderma viride.'],
-        chemical: ['Sett dipping in Carbendazim 50 WP @ 1 g/L before planting.'],
-        cultural: ['Use certified disease-free tissue-cultured sets.'],
-        safety: ['Sett treatment pit must be kept away from animal water troughs.'],
-        dosage: '1.0 g / L',
-        intervalDays: 30,
+        organic: ['Bordeaux mixture 1% spray.', 'Trichoderma harzianum @ 5 g/L.'],
+        chemical: ['Mancozeb 75 WP @ 2.5 g/L or Myclobutanil 10 WP @ 0.4 g/L.'],
+        cultural: ['Canopy pruning to increase sunlight penetration and air movement.'],
+        safety: ['Use eye protection while spraying.'],
+        dosage: '2.5 g / L',
+        intervalDays: 10,
       },
     },
   };

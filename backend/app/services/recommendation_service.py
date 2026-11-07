@@ -307,6 +307,128 @@ DISEASE_RECOMMENDATIONS: Dict[str, Dict[str, Any]] = {
                 "फसल अवशेषों को खेत से बाहर निकालकर नष्ट करें।"
             ]
         }
+    },
+
+    "Potato Early Blight": {
+        "crop": "Potato",
+        "disease_name": "Potato Early Blight",
+        "pathogen": "Alternaria solani (Fungus)",
+        "symptoms": {
+            "en": "Brown-black concentric rings forming target spot patterns on lower potato foliage.",
+            "mr": "बटाट्याच्या खालच्या पानांवर काळे-तपकिरी चक्राकार डाग पडतात.",
+            "hi": "आलू की निचली पत्तियों पर संकेंद्रित छल्लों वाले गहरे भूरे-काले धब्बे।"
+        },
+        "chemical_control": {
+            "en": [
+                "Mancozeb 75% WP @ 2.5 g/L or Chlorothalonil 75% WP @ 2 g/L.",
+                "Azoxystrobin 23% SC @ 1 ml/L at onset of lesions."
+            ],
+            "mr": [
+                "मॅन्कोझेब ७५% WP २.५ ग्रॅम किंवा क्लोरोथॅलोनिल २ ग्रॅम/लिटर फवारावे.",
+                "अझोक्सिस्ट्रोबिन २३% SC १ मिली/लिटर पाण्यात मिसळून फवारावे."
+            ],
+            "hi": [
+                "मैनकोजेब 75% WP को 2.5 ग्राम प्रति लीटर पानी में मिलाकर छिड़कें।",
+                "एजॉक्सीस्ट्रोबिन 23% SC को 1 मिली प्रति लीटर स्प्रे करें।"
+            ]
+        },
+        "organic_control": {
+            "en": ["Trichoderma harzianum @ 5 g/L", "5% Neem Seed Kernel Extract (NSKE)."],
+            "mr": ["ट्रायकोडर्मा ५ ग्रॅम/लिटर", "५% निंबोळी अर्क फवारावे."],
+            "hi": ["ट्राइकोडर्मा 5 ग्राम प्रति लीटर", "5% नीम अर्क का छिड़काव करें।"]
+        },
+        "cultural_practices": {
+            "en": ["Avoid overhead irrigation", "Practice 2-year crop rotation with cereals."],
+            "mr": ["तुषार सिंचन टाळा", "तृणधान्यांसोबत फेरपालट करा."],
+            "hi": ["फव्वारा सिंचाई से बचें", "अनाज फसलों के साथ फसल चक्र अपनाएं।"]
+        }
+    },
+
+    "Potato Late Blight": {
+        "crop": "Potato",
+        "disease_name": "Potato Late Blight",
+        "pathogen": "Phytophthora infestans (Oomycete)",
+        "symptoms": {
+            "en": "Water-soaked dark lesions spreading rapidly across foliage with white downy mildew under humid weather.",
+            "mr": "पानांवर काळे-तपकिरी पाणावलेले डाग वेगाने पसरतात आणि पानाच्या खाली पांढरी बुरशी दिसते.",
+            "hi": "पत्तियों पर पानी से भीगे काले-भूरे धब्बे जो नम मौसम में तेजी से फैलते हैं।"
+        },
+        "chemical_control": {
+            "en": [
+                "Dimethomorph 50% WP @ 1 g/L + Mancozeb @ 2 g/L.",
+                "Cymoxanil 8% + Mancozeb 64% WP @ 2.5 g/L."
+            ],
+            "mr": [
+                "डायमेथोमॉर्फ १ ग्रॅम + मॅन्कोझेब २ ग्रॅम/लिटर फवारावे.",
+                "सायमॉक्सॅनिल + मॅन्कोझेब २.५ ग्रॅम/लिटर फवारावे."
+            ],
+            "hi": [
+                "डाइमेथोमॉर्फ 1 ग्राम + मैनकोजेब 2 ग्राम प्रति लीटर छिड़कें।",
+                "साइमोक्सानिल + मैनकोजेब 2.5 ग्राम प्रति लीटर स्प्रे करें।"
+            ]
+        },
+        "organic_control": {
+            "en": ["1% Bordeaux mixture preventive spray", "Pseudomonas fluorescens @ 5 g/L."],
+            "mr": ["१% बोर्डो मिश्रण प्रतिबंधात्मक फवारणी", "स्यूडोमोनास ५ ग्रॅम/लिटर."],
+            "hi": ["1% बोर्डो मिश्रण का छिड़काव", "स्यूडोमोनास 5 ग्राम/लीटर छिड़कें।"]
+        },
+        "cultural_practices": {
+            "en": ["Hill up ridges to protect tubers", "Destroy infected volunteer tubers."],
+            "mr": ["बटाटे उघडे पडू नयेत म्हणून मातीची भर लावा", "रोगट अवशेष नष्ट करा."],
+            "hi": ["कंदों को ढकने के लिए मिट्टी चढ़ाएं", "संक्रमित पौधों को नष्ट करें।"]
+        }
+    },
+
+    "Corn Common Rust": {
+        "crop": "Corn",
+        "disease_name": "Corn Common Rust",
+        "pathogen": "Puccinia sorghi (Fungus)",
+        "symptoms": {
+            "en": "Golden-brown to cinnamon-brown pustules scattered over both upper and lower leaf surfaces.",
+            "mr": "मक्याच्या दोन्ही बाजूंच्या पानांवर तांबूस-तपकिरी रंगाचे बारीक फोड (तांबेरा) दिसतात.",
+            "hi": "मक्का की पत्तियों पर दालचीनी जैसे भूरे रंग के उभरे हुए फफोले।"
+        },
+        "chemical_control": {
+            "en": ["Azoxystrobin 18.2% + Difenoconazole 11.4% SC @ 1 ml/L.", "Mancozeb 75% WP @ 2.5 g/L."],
+            "mr": ["अझोक्सिस्ट्रोबिन + डायफेनोकोनाझोल १ मिली/लिटर फवारावे.", "मॅन्कोझेब २.५ ग्रॅम/लिटर फवारावे."],
+            "hi": ["एजॉक्सीस्ट्रोबिन + डाइफेनोकोनाजोल 1 मिली/लीटर स्प्रे करें।", "मैनकोजेब 2.5 ग्राम/लीटर छिड़कें।"]
+        },
+        "organic_control": {
+            "en": ["Foliar spray with Bacillus subtilis @ 5 g/L.", "Neem oil 10,000 ppm @ 3 ml/L."],
+            "mr": ["बॅसिलस सबटिलिस ५ ग्रॅम/लिटर", "कडुनिंब तेल ३ मिली/लिटर."],
+            "hi": ["बैसिलस सबटिलिस 5 ग्राम/लीटर", "नीम तेल 3 मिली/लीटर छिड़कें।"]
+        },
+        "cultural_practices": {
+            "en": ["Plant resistant corn hybrids", "Early sowing to avoid cool humid rust peaks."],
+            "mr": ["रोगप्रतिकारक संकरित जातींची लागवड करा", "हंगामाच्या सुरुवातीला पेरणी करा."],
+            "hi": ["रोग प्रतिरोधी संकरित किस्मों का चयन करें", "समय पर बुवाई करें।"]
+        }
+    },
+
+    "Pepper Bacterial Spot": {
+        "crop": "Pepper",
+        "disease_name": "Pepper Bacterial Spot",
+        "pathogen": "Xanthomonas campestris pv. vesicatoria",
+        "symptoms": {
+            "en": "Small circular to irregular dark brown spots with prominent yellow chlorotic halos on foliage.",
+            "mr": "मिरचीच्या पानांवर पिवळी कडा असलेले बारीक काळे-तपकिरी डाग पडतात.",
+            "hi": "मिर्च की पत्तियों पर पीले घेरे वाले छोटे गहरे भूरे धब्बे।"
+        },
+        "chemical_control": {
+            "en": ["Copper Hydroxide 53.8% DF @ 2 g/L + Streptocycline @ 0.1 g/L."],
+            "mr": ["कॉपर हायड्रॉक्साइड २ ग्रॅम + स्ट्रेप्टोसायक्लिन ०.१ ग्रॅम/लिटर फवारावे."],
+            "hi": ["कॉपर हाइड्रॉक्साइड 2 ग्राम + स्ट्रेप्टोसाइक्लिन 0.1 ग्राम/लीटर छिड़कें।"]
+        },
+        "organic_control": {
+            "en": ["Seed treatment with hot water (50°C for 25 min)", "Pseudomonas fluorescens @ 5 g/L."],
+            "mr": ["स्यूडोमोनास ५ ग्रॅम/लिटर", "५% दशपर्णी अर्क फवारावे."],
+            "hi": ["गर्म पानी से बीजोपचार", "स्यूडोमोनास 5 ग्राम/लीटर स्प्रे करें।"]
+        },
+        "cultural_practices": {
+            "en": ["Ensure disease-free nursery seedlings", "Avoid touching wet foliage in morning."],
+            "mr": ["निरोगी रोपे वापरा", "सकाळी दवात काम करणे टाळा."],
+            "hi": ["स्वस्थ पौध का रोपण करें", "गीली पत्तियों को छूने से बचें।"]
+        }
     }
 }
 
@@ -421,6 +543,57 @@ class RecommendationService:
                 "organic_control": data["organic_control"].get(lang, data["organic_control"]["en"]),
                 "cultural_practices": data["cultural_practices"].get(lang, data["cultural_practices"]["en"]),
                 "precautions": "Always wear protective gear while applying pesticides. Never spray against wind direction."
+            }
+
+        # Healthy foliage branch
+        if "healthy" in disease_name.lower():
+            crop_name = disease_name.replace("healthy", "").replace("Healthy", "").replace("Leaf", "").strip() or "Crop"
+            return {
+                "crop": crop_name,
+                "disease_name": f"{crop_name} Healthy Foliage",
+                "pathogen": "None (Crop in Good Health)",
+                "symptoms": {
+                    "en": "Foliage exhibits vibrant chlorophyll color, intact lamina, and normal cellular structure with no active disease lesions.",
+                    "mr": "पानांवर कोणताही रोगाचा प्रादुर्भाव नाही, पाने निरोगी आणि जोमदार आहेत.",
+                    "hi": "पत्तियों पर किसी रोग के लक्षण नहीं हैं, पत्तियां स्वस्थ और मजबूत हैं।"
+                }.get(lang, "Foliage exhibits vibrant chlorophyll color with no active disease lesions."),
+                "chemical_control": {
+                    "en": ["No chemical fungicide or pesticide required. Crop is in good health."],
+                    "mr": ["कोणतेही रासायनिक बुरशीनाशक फवारण्याची गरज नाही. पीक निरोगी आहे."],
+                    "hi": ["किसी रासायनिक कवकनाशी या कीटनाशक की आवश्यकता नहीं है। फसल स्वस्थ है।"]
+                }.get(lang, ["No chemical fungicide or pesticide required."]),
+                "organic_control": {
+                    "en": [
+                        "Preventive foliar spray of 5% Neem Seed Kernel Extract (NSKE) to sustain natural defenses.",
+                        "Foliar micronutrient or sea-weed extract spray @ 2 ml/L to enhance photosynthetic vigor."
+                    ],
+                    "mr": [
+                        "रोगप्रतिकारशक्ती टिकवण्यासाठी ५% निंबोळी अर्क (NSKE) फवारावे.",
+                        "पानांच्या वाढीसाठी सूक्ष्म अन्नद्रव्ये किंवा सेंद्रिय टॉनिक २ मिली/लिटर फवारावे."
+                    ],
+                    "hi": [
+                        "पौधों की प्राकृतिक प्रतिरक्षा बनाए रखने के लिए 5% नीम अर्क का छिड़काव करें।",
+                        "पोषक तत्वों की आपूर्ति के लिए सूक्ष्म पोषक तत्व या सीवीड अर्क 2 मिली/लीटर स्प्रे करें।"
+                    ]
+                }.get(lang, ["Preventive foliar spray of 5% Neem Seed Kernel Extract (NSKE)."]),
+                "cultural_practices": {
+                    "en": [
+                        "Continue balanced irrigation without waterlogging.",
+                        "Maintain recommended N-P-K nutrient schedule.",
+                        "Keep field borders clean of weeds."
+                    ],
+                    "mr": [
+                        "ठिबक सिंचनाद्वारे वेळेवर पाणी द्या आणि पाण्याचा निचरा व्यवस्थित ठेवा.",
+                        "योग्य खत व्यवस्थापन (NPK) चालू ठेवा.",
+                        "शेतातील तण काढून स्वच्छता ठेवा."
+                    ],
+                    "hi": [
+                        "उचित सिंचाई जारी रखें और जलभराव से बचें।",
+                        "अनुशंसित खाद एवं पोषक तत्व प्रबंधन जारी रखें।",
+                        "खेत को खरपतवार मुक्त रखें।"
+                    ]
+                }.get(lang, ["Continue balanced irrigation and nutrient management."]),
+                "precautions": "Avoid unneeded chemical sprays to preserve beneficial insects and natural predators."
             }
 
         # Generic fallback

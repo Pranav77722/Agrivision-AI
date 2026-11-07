@@ -12,13 +12,14 @@ import { CropType } from '../../src/types';
 
 const CROPS: CropType[] = [
   'tomato',
-  'rice',
-  'wheat',
-  'cotton',
   'potato',
   'maize',
-  'soybean',
-  'sugarcane',
+  'rice',
+  'cotton',
+  'wheat',
+  'pepper',
+  'apple',
+  'grape',
 ];
 
 export default function PreviewScreen() {
