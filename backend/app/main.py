@@ -131,6 +131,16 @@ async def root():
     }
 
 
+@app.get("/health", tags=["Root"])
+async def root_health():
+    return {
+        "status": "healthy",
+        "service": settings.PROJECT_NAME,
+        "environment": settings.BACKEND_ENV
+    }
+
+
+
 # Exception Handlers
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
